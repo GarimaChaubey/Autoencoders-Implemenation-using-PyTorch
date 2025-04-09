@@ -17,7 +17,7 @@ The autoencoder comprises two main components:
 **The architecture is defined as follows:**
 
  ```
- python import torch.nn as nn
+ import torch.nn as nn
 
 class Autoencoder(nn.Module):
     def __init__(self):
@@ -57,7 +57,7 @@ The model is trained and evaluated on the **MNIST** dataset, which is available 
 **Normalize**: Scales pixel values to the range [-1, 1].
 
 ```
-python import torchvision.transforms as transforms
+import torchvision.transforms as transforms
 from torchvision.datasets import MNIST
 
 transform = transforms.Compose([
@@ -103,7 +103,7 @@ for epoch in range(num_epochs):
 After training, the model's performance can be evaluated by visualizing the original and reconstructed images.
 
 ```
-python import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 # Load test data
 test_loader = DataLoader(test_dataset, batch_size=10, shuffle=True)
