@@ -56,7 +56,7 @@ The model is trained and evaluated on the MNIST dataset, which is available thro
 **Normalize**: Scales pixel values to the range [-1, 1].
 
 <pre>
-import torchvision.transforms as transforms
+```pythonimport torchvision.transforms as transforms
 from torchvision.datasets import MNIST
 
 transform = transforms.Compose([
@@ -65,5 +65,69 @@ transform = transforms.Compose([
 ])
 
 train_dataset = MNIST(root='./data', train=True, transform=transform, download=True)
-test_dataset = MNIST(root='./data', train=False, transform=transform, download=True)
+test_dataset = MNIST(root='./data', train=False, transform=transform, download=True)```
 </pre>
+
+## Training
+The training process involves minimizing the reconstruction loss between the input images and their reconstructions. The Mean Squared Error (MSE) loss function and the Adam optimizer are used for this purpose.
+
+python
+Copy
+Edit
+import torch
+from torch.utils.data import DataLoader
+
+# DataLoader
+train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
+
+# Model, Loss, Optimizer
+model = Autoencoder().to(device)
+criterion = nn.MSELoss()
+optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
+
+# Training Loop
+num_epochs = 20
+for epoch in range(num_epochs):
+    for imgs, _ in train_loader:
+        imgs = imgs.to(device)
+        outputs = model(imgs)
+        loss = criterion(outputs, imgs)
+        
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+    
+    print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}")
+Evaluation and Visualization
+After training, the model's performance can be evaluated by visualizing the original and reconstructed images.
+
+python
+Copy
+Edit
+import matplotlib.pyplot as plt
+
+# Load test data
+test_loader = DataLoader(test_dataset, batch_size=10, shuffle=True)
+dataiter = iter(test_loader)
+images, _ = dataiter.next()
+images = images.to(device)
+
+# Get reconstructed images
+reconstructed = model(images)
+
+# Plot original and reconstructed images
+fig, axes = plt.subplots(nrows=2, ncols=10, sharex=True, sharey=True, figsize=(20,4))
+for images, row in zip([images, reconstructed], axes):
+    for img, ax in zip(images, row):
+        ax.imshow(img.cpu().detach().numpy().reshape((28, 28)), cmap='gray')
+        ax.get_xaxis().set_visible(False)
+        ax.get_yaxis().set_visible(False)
+plt.show()
+Results
+The autoencoder successfully learns to reconstruct handwritten digits with high fidelity. Below are sample results showing original images alongside their reconstructions:
+
+
+References
+PyTorch Documentation
+
+MNIST Dataset
