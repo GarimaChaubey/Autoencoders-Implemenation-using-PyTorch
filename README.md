@@ -67,12 +67,12 @@ transform = transforms.Compose([
 
 train_dataset = MNIST(root='./kaggle/working', train=True, transform=transform, download=True)
 test_dataset = MNIST(root='./kaggle/working', train=False, transform=transform, download=True)
-</pre>
+```
 
 ## Training
 The training process involves minimizing the reconstruction loss between the input images and their reconstructions. The **Mean Squared Error (MSE)** loss function and the **Adam optimizer** are used for this purpose.
 
-<pre>
+```
 import torch
 from torch.utils.data import DataLoader
 
