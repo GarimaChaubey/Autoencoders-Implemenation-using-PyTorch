@@ -1,5 +1,5 @@
 # Autoencoder Implementation with PyTorch
-
+[![dep2](https://img.shields.io/badge/PyTorch-0.4.1-orange.svg)](https://pytorch.org/)
 This repository contains an implementation of an autoencoder using PyTorch, trained on the MNIST dataset of handwritten digits. The objective is to learn a compressed latent representation of images and reconstruct them with minimal loss.
 
 ## Overview
