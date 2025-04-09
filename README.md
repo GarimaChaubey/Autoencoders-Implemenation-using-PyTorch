@@ -48,6 +48,8 @@ class Autoencoder(nn.Module):
         return x
 </pre>
 
+![image](https://github.com/user-attachments/assets/5cdf5974-a02d-4e41-af2f-96b01bbca76c)
+
 ## Dataset
 The model is trained and evaluated on the MNIST dataset, which is available through torchvision.datasets. The dataset is preprocessed with the following transformations:
 
@@ -56,7 +58,7 @@ The model is trained and evaluated on the MNIST dataset, which is available thro
 **Normalize**: Scales pixel values to the range [-1, 1].
 
 <pre>
-```pythonimport torchvision.transforms as transforms
+import torchvision.transforms as transforms
 from torchvision.datasets import MNIST
 
 transform = transforms.Compose([
@@ -65,15 +67,13 @@ transform = transforms.Compose([
 ])
 
 train_dataset = MNIST(root='./data', train=True, transform=transform, download=True)
-test_dataset = MNIST(root='./data', train=False, transform=transform, download=True)```
+test_dataset = MNIST(root='./data', train=False, transform=transform, download=True)
 </pre>
 
 ## Training
 The training process involves minimizing the reconstruction loss between the input images and their reconstructions. The Mean Squared Error (MSE) loss function and the Adam optimizer are used for this purpose.
 
-python
-Copy
-Edit
+<pre>
 import torch
 from torch.utils.data import DataLoader
 
@@ -98,12 +98,12 @@ for epoch in range(num_epochs):
         optimizer.step()
     
     print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}")
-Evaluation and Visualization
+</pre>
+
+##Evaluation and Visualization
 After training, the model's performance can be evaluated by visualizing the original and reconstructed images.
 
-python
-Copy
-Edit
+<pre>
 import matplotlib.pyplot as plt
 
 # Load test data
@@ -123,11 +123,11 @@ for images, row in zip([images, reconstructed], axes):
         ax.get_xaxis().set_visible(False)
         ax.get_yaxis().set_visible(False)
 plt.show()
-Results
+</pre>
+
+##Results
 The autoencoder successfully learns to reconstruct handwritten digits with high fidelity. Below are sample results showing original images alongside their reconstructions:
 
 
-References
-PyTorch Documentation
-
-MNIST Dataset
+##References
+-https://arxiv.org/pdf/1406.2661
