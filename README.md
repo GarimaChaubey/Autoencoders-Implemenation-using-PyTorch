@@ -16,7 +16,8 @@ The autoencoder comprises two main components:
 
 **The architecture is defined as follows:**
 
-<pre>import torch.nn as nn
+ ```
+  python import torch.nn as nn
 
 class Autoencoder(nn.Module):
     def __init__(self):
@@ -45,7 +46,7 @@ class Autoencoder(nn.Module):
         x = self.decoder(x)
         x = x.view(-1, 1, 28, 28)  # Reshape back to image dimensions
         return x
-</pre>
+```
 
 
 ## Dataset
@@ -55,8 +56,8 @@ The model is trained and evaluated on the **MNIST** dataset, which is available 
 
 **Normalize**: Scales pixel values to the range [-1, 1].
 
-<pre>
-import torchvision.transforms as transforms
+```
+python import torchvision.transforms as transforms
 from torchvision.datasets import MNIST
 
 transform = transforms.Compose([
@@ -96,13 +97,13 @@ for epoch in range(num_epochs):
         optimizer.step()
     
     print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}")
-</pre>
+```
 
 ## Evaluation and Visualization
 After training, the model's performance can be evaluated by visualizing the original and reconstructed images.
 
-<pre>
-import matplotlib.pyplot as plt
+```
+python import matplotlib.pyplot as plt
 
 # Load test data
 test_loader = DataLoader(test_dataset, batch_size=10, shuffle=True)
@@ -121,7 +122,7 @@ for images, row in zip([images, reconstructed], axes):
         ax.get_xaxis().set_visible(False)
         ax.get_yaxis().set_visible(False)
 plt.show()
-</pre>
+```
 
 ## Results
 The autoencoder successfully learns to reconstruct handwritten digits with high fidelity. Below are sample results showing original images alongside their reconstructions:
