@@ -127,6 +127,7 @@ plt.show()
 
 ## Results
 The autoencoder successfully learns to reconstruct handwritten digits with high fidelity. Below are sample results showing original images alongside their reconstructions:
+
 ![image](https://github.com/user-attachments/assets/20167489-8f77-410a-a38f-30014742173f)
 
 
