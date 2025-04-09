@@ -10,13 +10,13 @@ An autoencoder is an unsupervised neural network that learns to compress input d
 ## Model Architecture
 The autoencoder comprises two main components:
 
-<pre>**Encoder:** Compresses the input image into a lower-dimensional latent space.
+**Encoder:** Compresses the input image into a lower-dimensional latent space.
 
 **Decoder:** Reconstructs the image from the latent representation.
 
 The architecture is defined as follows:
 
-```python import torch.nn as nn
+<pre> import torch.nn as nn
 
 class Autoencoder(nn.Module):
     def __init__(self):
@@ -44,5 +44,5 @@ class Autoencoder(nn.Module):
         x = self.encoder(x)
         x = self.decoder(x)
         x = x.view(-1, 1, 28, 28)  # Reshape back to image dimensions
-        return x ```
+        return x
 </pre>
