@@ -98,7 +98,7 @@ for epoch in range(num_epochs):
     print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}")
 </pre>
 
-##Evaluation and Visualization
+## Evaluation and Visualization
 After training, the model's performance can be evaluated by visualizing the original and reconstructed images.
 
 <pre>
@@ -127,5 +127,5 @@ plt.show()
 The autoencoder successfully learns to reconstruct handwritten digits with high fidelity. Below are sample results showing original images alongside their reconstructions:
 
 
-##References
+## References
 -https://arxiv.org/pdf/1406.2661
