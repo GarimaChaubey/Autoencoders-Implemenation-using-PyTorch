@@ -49,7 +49,7 @@ class Autoencoder(nn.Module):
 
 
 ## Dataset
-The model is trained and evaluated on the MNIST dataset, which is available through torchvision.datasets. The dataset is preprocessed with the following transformations:
+The model is trained and evaluated on the **MNIST** dataset, which is available through torchvision.datasets. The dataset is preprocessed with the following transformations:
 
 **ToTensor**: Converts images to PyTorch tensors.
 
@@ -64,12 +64,12 @@ transform = transforms.Compose([
     transforms.Normalize((0.5,), (0.5,))
 ])
 
-train_dataset = MNIST(root='./data', train=True, transform=transform, download=True)
-test_dataset = MNIST(root='./data', train=False, transform=transform, download=True)
+train_dataset = MNIST(root='./kaggle/working', train=True, transform=transform, download=True)
+test_dataset = MNIST(root='./kaggle/working', train=False, transform=transform, download=True)
 </pre>
 
 ## Training
-The training process involves minimizing the reconstruction loss between the input images and their reconstructions. The Mean Squared Error (MSE) loss function and the Adam optimizer are used for this purpose.
+The training process involves minimizing the reconstruction loss between the input images and their reconstructions. The **Mean Squared Error (MSE)** loss function and the **Adam optimizer** are used for this purpose.
 
 <pre>
 import torch
@@ -125,6 +125,7 @@ plt.show()
 
 ## Results
 The autoencoder successfully learns to reconstruct handwritten digits with high fidelity. Below are sample results showing original images alongside their reconstructions:
+
 
 
 ## References
