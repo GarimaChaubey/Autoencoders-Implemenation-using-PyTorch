@@ -14,9 +14,10 @@ The autoencoder comprises two main components:
 
 **Decoder:** Reconstructs the image from the latent representation.
 
-The architecture is defined as follows:
+**The architecture is defined as follows:**
 
-<pre> import torch.nn as nn
+<pre> 
+import torch.nn as nn
 
 class Autoencoder(nn.Module):
     def __init__(self):
@@ -45,4 +46,24 @@ class Autoencoder(nn.Module):
         x = self.decoder(x)
         x = x.view(-1, 1, 28, 28)  # Reshape back to image dimensions
         return x
+</pre>
+
+## Dataset
+The model is trained and evaluated on the MNIST dataset, which is available through torchvision.datasets. The dataset is preprocessed with the following transformations:
+
+**ToTensor**: Converts images to PyTorch tensors.
+
+**Normalize**: Scales pixel values to the range [-1, 1].
+
+<pre>
+import torchvision.transforms as transforms
+from torchvision.datasets import MNIST
+
+transform = transforms.Compose([
+    transforms.ToTensor(),
+    transforms.Normalize((0.5,), (0.5,))
+])
+
+train_dataset = MNIST(root='./data', train=True, transform=transform, download=True)
+test_dataset = MNIST(root='./data', train=False, transform=transform, download=True)
 </pre>
