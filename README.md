@@ -130,7 +130,7 @@ The autoencoder successfully learns to reconstruct handwritten digits with high 
 
 ![image](https://github.com/user-attachments/assets/20167489-8f77-410a-a38f-30014742173f)
 
-
+📘 View the Notebook: autoencoders.ipynb
 
 ## References
 -https://arxiv.org/pdf/1406.2661
