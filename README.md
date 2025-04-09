@@ -47,7 +47,6 @@ class Autoencoder(nn.Module):
         return x
 </pre>
 
-![image](https://github.com/user-attachments/assets/5cdf5974-a02d-4e41-af2f-96b01bbca76c)
 
 ## Dataset
 The model is trained and evaluated on the MNIST dataset, which is available through torchvision.datasets. The dataset is preprocessed with the following transformations:
@@ -124,7 +123,7 @@ for images, row in zip([images, reconstructed], axes):
 plt.show()
 </pre>
 
-##Results
+## Results
 The autoencoder successfully learns to reconstruct handwritten digits with high fidelity. Below are sample results showing original images alongside their reconstructions:
 
 
