@@ -17,7 +17,7 @@ The autoencoder comprises two main components:
 **The architecture is defined as follows:**
 
  ```
-  python import torch.nn as nn
+ python import torch.nn as nn
 
 class Autoencoder(nn.Module):
     def __init__(self):
