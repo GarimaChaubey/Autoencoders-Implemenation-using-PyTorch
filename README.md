@@ -133,4 +133,5 @@ The autoencoder successfully learns to reconstruct handwritten digits with high 
 📘 **View the Notebook**: [autoencoders.ipynb](https://github.com/GarimaChaubey/Autoencoders-Implemenation-using-PyTorch/blob/main/autoencoders.ipynb)
 
 ## References
--https://arxiv.org/pdf/1406.2661
+-[https://arxiv.org/pdf/1406.2661
+](https://www.cs.toronto.edu/~hinton/absps/science.pdf)
